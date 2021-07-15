@@ -4,6 +4,7 @@ const app = express()
 
 const originRouter  = require('./routes/origin')
 const indexRouter  = require('./routes/index')
+const productRouter  = require('./routes/product')
 
 require('./db/db')
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/origin',  originRouter)
 app.use('/',  indexRouter)
+app.use('/product',  productRouter)
 
 const port =process.env.PORT || 3000;
 app.listen(port, ()=> console.log(`app running on ${port}`))
