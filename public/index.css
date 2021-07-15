@@ -1,10 +1,16 @@
-.card{
+.card {
 	padding: 40px;
 	margin: 50px;
-	height: 200px;
+	height: 500px;
 }
 
 
 .mb-5{
 	width: 900px;
+}
+#card{
+	padding: 40px;
+	margin: 50px;
+	height: 200px;
+
 }
