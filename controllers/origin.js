@@ -1,24 +1,33 @@
 const Origin = require('../models/origin')
 
+const showOrigin = (req,res,next) =>{
+    res.render('new_origin')
+}
+
 //new Origin
 const  newOrigin = async(req, res, next) => {
-    const origin = new Origin(req.body)
+    const origin = new Origin({
+        name: req.body.name,
+        description: req.body.description
+    })
     try{
         const savedOrigin = await origin.save()
-        res.status(201).send(origin)
+        res.redirect('/origin/origin')
     }catch(err){
         res.status(400).send(err)
     }
+   
 };
 
 //get All Origin
 const allOrigin = async (req, res, next) => {
     try{
         const allOrigin = await Origin.find({})
-        res.send(allOrigin)
+        res.render('view_origin', {allOrigin: allOrigin})
     }catch(err){
-        res.status(500).send(errs)
+        res.send(errs)
     }
+
 };
 
 const allOriginById= async(req,res,next)=>{
@@ -72,6 +81,7 @@ module.exports = {
     newOrigin,
     allOriginById,
     updateOrigin,
-    deleteOrigin
+    deleteOrigin,
+    showOrigin 
 
 }

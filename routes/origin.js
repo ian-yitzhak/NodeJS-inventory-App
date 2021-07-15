@@ -3,10 +3,12 @@ const router = express.Router()
 
 const originController = require('../controllers/origin')
 
-router.post('/' , originController.newOrigin)
-router.get('/' , originController.allOrigin )
+router.post('/new' , originController.newOrigin)
+router.get('/new' , originController.showOrigin )
+router.get('/origin' , originController.allOrigin )
 router.get('/:id' , originController.allOriginById )
 router.patch('/:id' , originController.updateOrigin)
 router.delete('/:id' , originController.deleteOrigin )
+
 
 module.exports = router

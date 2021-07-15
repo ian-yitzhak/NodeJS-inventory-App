@@ -1,0 +1,44 @@
+<br>
+<br>
+<div class="d-flex justify-content-center"> <a href="/origin/new" class="btn btn-warning">ADD NEW</a></div>
+
+
+<div class="row row-cols-1 row-cols-md-2">  
+ <% allOrigin.forEach(origin => { %>
+  
+  <div class="col mb-4">
+
+  
+    <!-- Card -->
+    <div class="card">
+
+      <!--Card image-->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+          alt="Card image cap">
+        
+      </div>
+
+      <!--Card content-->
+      <div class="card-body">
+
+        <!--Title-->
+        <h4 class="card-title"><%= origin.name %></h4>
+        <!--Text-->
+        <p class="card-text"><%= origin.description %></p>
+        <br>
+
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-info">Edit</button>
+        
+
+        <button type="button" class="btn btn-light-blue btn-rounded">see more</button>
+
+      </div>
+
+    </div>
+    <!-- Card -->
+      
+  </div>
+  <% }) %>
+</div>
