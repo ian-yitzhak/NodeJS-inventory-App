@@ -2,7 +2,7 @@
 <div class="d-flex justify-content-center"> 
 
 <section class="form-dark mb-5">
- <form action="/product/new" method="POST">
+ <form action="/product/new" method="POST"  enctype="multipart/form-data" autocomplete="off">
 <div class="md-form">
 <input class="form-control" type="text" name="name" placeholder="please enter the name">
  </div>
@@ -13,19 +13,19 @@
         
 </div>
 
-
-<% originName.forEach( origin => { %>
 <div class="md-form">
 
-<select class="browser-default custom-select">
-  <option selected>slelect origin </option>
-  <option label="<%= origin.name %>" value="<%= origin.name %>"></option>
-  
-</select>
-</div>
+<select name="origin" class="browser-default custom-select">
+  <% originName.forEach(origin => { %>
+    <% if (origin.id === product.origin ) { %>
+      <option selected label="<%= origin.name %>" value="<%= origin.id %>">
+    <% } else { %>
+      <option label="<%= origin.name %>" value="<%= origin.id %>">
+    <% } %>
+  <% }) %>
+  </select>
 
-<% })%>
-              
+  </div>             
 
 
 <div class="md-form">

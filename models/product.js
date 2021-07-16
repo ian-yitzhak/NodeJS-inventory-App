@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 
-const productSchema = new Schema({
+const productSchema = new mongoose.Schema({
   name: 
   {
    type: String, 
@@ -27,12 +27,13 @@ const productSchema = new Schema({
     required: true 
   },
   origin: { 
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
      ref: 'Origin'
      },
-  image_url: { 
+  image: { 
     type: String, 
-    required: true 
+    
   }
 })
 
