@@ -9,6 +9,7 @@ const storage = multer.diskStorage({
     destination: function(req,file,cb){
         cb(null, './public/uploads/images')
     },
+
     filename: function(req,file,cb){
         cb(null,Date.now() + '-' + file.originalname)
     },
@@ -85,24 +86,35 @@ const getById = async (req,res,next) =>{
 res.render('show', { product: product })
 }
 
-const editProduct = async(req,res,next)=>{
-   req.product = await Blog.findById(req.params.id);
-   let product = req.product;
+const editProduct = 
+[
+upload.single('image'), 
+async(req,res,next)=>{
+    console.log(req.file)
+  req.product = await Product.findById(req.params.id);
+  let product = req.product;
 
-        product.name: req.body.name,
-        product.description: req.body.description,
-        product.origin: req.body.origin,
-        product.price: req.body.price,
-        product.stock: req.body.stock,
-        product.image: req.file.filename,
+    product.name= req.body.name
+    product.description = req.body.description
+    product.origin = req.body.origin
+    product.price = req.body.price
+    product.stock = req.body.stock
+    product.image = req.file.filename
 
         try{
 
         product = await product.save()
-        res.redirect(`/product/show/${blog.slug }`)
+        res.redirect(`/product/show/${product.slug }`)
     }catch(err){
         res.status(422).send(err)
     }
+}
+]
+
+const getEditProduct = async(req,res,next)=>{
+    const origin = await Origin.find({})
+    const product = await Product.findById(req.params.id)
+    res.render('edit', {product : product , origin: origin })
 }
 
 module.exports = {
@@ -110,5 +122,7 @@ module.exports = {
     viewProduct,
     newViewProduct,
     deleteProduct,
-    getById 
+    getById,
+    editProduct,
+    getEditProduct
 }

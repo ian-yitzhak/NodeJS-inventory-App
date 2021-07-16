@@ -1,22 +1,22 @@
+<div class="d-flex justify-content-center">
 
-<div class="d-flex justify-content-center"> 
 
 <section class="form-dark mb-5">
- <form action="/product/new" method="POST"  enctype="multipart/form-data" autocomplete="off">
+ <form action="/product/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" autocomplete="off">
 <div class="md-form">
 <input class="form-control" type="text" value="<%= product.name%>" name="name" placeholder="please enter the name">
  </div>
 
 <div class="md-form">
       
-<textarea id="form103" name="description" value="<%= product.description%>"  placeholder="please enter description"  class="md-textarea form-control" rows="5"></textarea>
+<textarea id="form103" name="description" value="<%= product.description %>"  placeholder="please enter description"  class="md-textarea form-control" rows="5"></textarea>
         
 </div>
 
 <div class="md-form">
 
 <select name="origin" class="browser-default custom-select">
-  <% originName.forEach(origin => { %>
+  <% origin.forEach(origin => { %>
     <% if (origin.id === product.origin ) { %>
       <option selected label="<%= origin.name %>" value="<%= origin.id %>">
     <% } else { %>
@@ -44,7 +44,7 @@
 
 
 <label class="form-label" for="customFile">Default file input example</label>
-<input type="file" name="image"  class="form-control" id="customFile" />
+<input type="file" name="image" value="<%= product.image %>"  class="form-control" id="customFile" />
 <!--Grid row-->
       <div class="row d-flex align-items-center">
 
@@ -60,6 +60,7 @@
 </section>
 <!-- Section: form dark -->
 
+ </div>
  </div>
       
 
