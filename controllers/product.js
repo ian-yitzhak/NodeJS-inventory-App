@@ -117,6 +117,8 @@ const getEditProduct = async(req,res,next)=>{
     res.render('edit', {product : product , origin: origin })
 }
 
+
+
 module.exports = {
     newProduct,
     viewProduct,

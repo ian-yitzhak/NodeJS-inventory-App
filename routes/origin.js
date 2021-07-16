@@ -10,5 +10,8 @@ router.get('/:id' , originController.allOriginById )
 router.patch('/:id' , originController.updateOrigin)
 router.delete('/:id' , originController.deleteOrigin )
 
+router.get('/origin/:id', originController.categoryProduct )
+
+
 
 module.exports = router

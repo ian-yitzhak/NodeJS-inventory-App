@@ -1,0 +1,79 @@
+<br>
+<br>
+<div class="d-flex justify-content-center"> <a href="/product/new" class="btn btn-warning">ADD NEW</a></div>
+
+<div class="d-flex justify-content-center"> 
+<%= origin.name %>
+<%= origin.description %>
+
+</div>
+ <section class="category-products">
+        <% if (product.length === 0) { %> 
+          <h4>This category has no listed product </h4>
+          <% } else { %> 
+          <% product.forEach(product => { %>
+          <div class="row row-cols-1 row-cols-md-2">         
+
+  
+  <div class="col mb-5" >
+
+  
+    <!-- Card -->
+    <div class="card" id="details">
+
+      <!--Card image-->
+      <div class="view overlay">
+        <img class="card-img-top" src="/uploads/images/<%= product.image %>"
+          alt="Card image cap">
+        
+      </div>
+
+      <!--Card content-->
+      <div class="card-body"> Price: $
+
+        <!--Title-->
+        <h4 class="card-title"><strong>Name: </strong><%= product.name %></h4>
+
+        <h4 class="card-title"><strong>Origin: </strong> <%= origin.name %></h4>
+        <!--Text-->
+        <p class="card-text"><%= product.description %></p>
+        <br>
+        <p class="card-text">Price: $<%= product.price %></p>
+        <br>
+
+        <form action="/product/<%= product.id %>?_method=DELETE" method="POST" class="d-inline">
+
+        <button class="btn btn-danger">Delete</button>
+
+        </form>
+
+        
+
+        <a href="/product/edit/<%= product.id %>" class="btn btn-light-blue btn-rounded">Edit</a>
+        
+
+        <a href="/product/show/<%= product.slug %>" class="btn btn-light-blue btn-rounded">see more</a>
+
+      </div>
+
+    </div>
+    <!-- Card -->
+      
+  </div>
+
+
+</div>
+            
+
+          
+          <% }) %>
+          </div>
+          
+          
+        <% } %>
+
+       
+      </section>
+
+   
+

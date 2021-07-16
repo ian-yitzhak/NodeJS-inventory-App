@@ -1,8 +1,32 @@
 const Origin = require('../models/origin')
+const Product = require('../models/product')
+const async = require('async');
 
 const showOrigin = (req,res,next) =>{
     res.render('new_origin')
 }
+const categoryProduct = (req,res,next) =>{
+ async.parallel({
+    origin: function(callback) {
+      Origin.findById(req.params.id).exec(callback);
+    },
+    product: function(callback) {
+      Product.find({ 'origin': req.params.id }).exec(callback);
+    },
+  }, function (err, results) {
+    if (err) { return next(err); }
+    if (results.origin == null) {
+      const err = new Error('category not found');
+      err.status = 404;
+      return next(err);
+    }
+    res.render('category_pro', {
+      origin: results.origin,
+      product: results.product
+    })
+  })
+};
+  
 
 //new Origin
 const  newOrigin = async(req, res, next) => {
@@ -82,6 +106,7 @@ module.exports = {
     allOriginById,
     updateOrigin,
     deleteOrigin,
-    showOrigin 
+    showOrigin,
+    categoryProduct
 
 }

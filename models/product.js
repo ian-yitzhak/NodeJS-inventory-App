@@ -1,8 +1,5 @@
 const mongoose = require('mongoose')
 const slugify = require('slugify')
-
-
-
 const productSchema = new mongoose.Schema({
   name: 
   {
@@ -52,5 +49,11 @@ productSchema.pre('validate', function(next){
   }
   next()
 })
+
+productSchema
+  .virtual('url')
+  .get(function() {
+    return '/product/' + this._id;
+  })
 
 module.exports = mongoose.model('Product' , productSchema)
