@@ -25,7 +25,7 @@ const upload  = multer({
 const viewProduct = async (req,res,next) =>{
     try{
 
-    const product = await Product.find({})
+    const product = await Product.find({}).limit(10).sort({$natural:-1})
     res.render('view_product' , {product: product})
 }
 catch(e){
@@ -62,15 +62,53 @@ async(req,res,next) =>{
     })
     try{
         await product.save()
-        res.redirect('/product/product')
+        res.redirect(`/product/show/${product.slug }`)
     }catch(err){
         res.send(err)
     }
 } 
 ]
 
+const deleteProduct = async (req,res,next) =>{
+    await Product.findByIdAndDelete(req.params.id)
+  res.redirect('/product/product')
+
+
+}
+
+const getById = async (req,res,next) =>{
+
+    const product = await Product.findOne({ slug: req.params.slug })
+    if(product == null){
+        res.redirect('/product/product')
+}
+res.render('show', { product: product })
+}
+
+const editProduct = async(req,res,next)=>{
+   req.product = await Blog.findById(req.params.id);
+   let product = req.product;
+
+        product.name: req.body.name,
+        product.description: req.body.description,
+        product.origin: req.body.origin,
+        product.price: req.body.price,
+        product.stock: req.body.stock,
+        product.image: req.file.filename,
+
+        try{
+
+        product = await product.save()
+        res.redirect(`/product/show/${blog.slug }`)
+    }catch(err){
+        res.status(422).send(err)
+    }
+}
+
 module.exports = {
     newProduct,
     viewProduct,
-    newViewProduct
+    newViewProduct,
+    deleteProduct,
+    getById 
 }

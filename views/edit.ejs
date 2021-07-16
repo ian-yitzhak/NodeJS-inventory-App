@@ -1,0 +1,66 @@
+
+<div class="d-flex justify-content-center"> 
+
+<section class="form-dark mb-5">
+ <form action="/product/new" method="POST"  enctype="multipart/form-data" autocomplete="off">
+<div class="md-form">
+<input class="form-control" type="text" value="<%= product.name%>" name="name" placeholder="please enter the name">
+ </div>
+
+<div class="md-form">
+      
+<textarea id="form103" name="description" value="<%= product.description%>"  placeholder="please enter description"  class="md-textarea form-control" rows="5"></textarea>
+        
+</div>
+
+<div class="md-form">
+
+<select name="origin" class="browser-default custom-select">
+  <% originName.forEach(origin => { %>
+    <% if (origin.id === product.origin ) { %>
+      <option selected label="<%= origin.name %>" value="<%= origin.id %>">
+    <% } else { %>
+      <option label="<%= origin.name %>" value="<%= origin.id %>">
+    <% } %>
+  <% }) %>
+  </select>
+
+  </div>             
+
+
+<div class="md-form">
+<input class="form-control" name="price" value="<%= product.price%>"  type="number" placeholder="the price">
+      
+
+        
+</div>
+
+<div class="md-form">
+<input class="form-control" name="stock" value="<%= product.stock %>"  type="number" placeholder="stock">
+      
+
+        
+</div>
+
+
+<label class="form-label" for="customFile">Default file input example</label>
+<input type="file" name="image"  class="form-control" id="customFile" />
+<!--Grid row-->
+      <div class="row d-flex align-items-center">
+
+        <!--Grid column-->
+        <div class="text-center col-md-12 mt-3 mb-2">
+          <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Send</button>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+      </form>
+
+</section>
+<!-- Section: form dark -->
+
+ </div>
+      
+
+        

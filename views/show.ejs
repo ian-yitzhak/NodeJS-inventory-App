@@ -1,20 +1,17 @@
 <br>
 <br>
-<div class="d-flex justify-content-center"> <a href="/product/new" class="btn btn-warning">ADD NEW</a></div>
+<div class="d-flex justify-content-center"> <a href="/product/product" class="btn btn-warning">ADD NEW</a></div>
 
 
 <div class="row row-cols-1 row-cols-md-2">  
- <% product.forEach(origin => { %>
   
   <div class="col mb-1" >
-
-  
     <!-- Card -->
     <div class="card" id="product">
 
       <!--Card image-->
       <div class="view overlay">
-        <img class="card-img-top" src="/uploads/images/<%= origin.image %>"
+        <img class="card-img-top" src="/uploads/images/<%= product.image %>"
           alt="Card image cap">
         
       </div>
@@ -23,12 +20,16 @@
       <div class="card-body">
 
         <!--Title-->
-        <h4 class="card-title"><%= origin.name %></h4>
+        <h4 class="card-title"><%= product.name %></h4>
         <!--Text-->
-        <p class="card-text"><%= origin.description %></p>
+        <p class="card-text"><%= product.description %></p>
+        <br>
+        <p class="card-text"><%= product.price %></p>
+        <br>
+        <p class="card-text"><%= product.stock %></p>
         <br>
 
-        <form action="/product/<%= origin.id %>?_method=DELETE" method="POST" class="d-inline">
+        <form action="/product/<%= product.id %>?_method=DELETE" method="POST" class="d-inline">
 
         <button class="btn btn-danger">Delete</button>
 
@@ -36,16 +37,10 @@
 
         <button class="btn btn-info">Edit</button>
         
-
-        <a href="/product/show/<%= origin.slug %>" class="btn btn-light-blue btn-rounded">see more</a>
-
       </div>
 
     </div>
     <!-- Card -->
       
   </div>
-
-  <% }) %>
-
 </div>

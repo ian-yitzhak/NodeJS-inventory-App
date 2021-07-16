@@ -1,5 +1,6 @@
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
+const methodOverride = require('method-override')
 const app = express()
 
 const originRouter  = require('./routes/origin')
@@ -14,6 +15,7 @@ app.set("layout", "layouts/layout")
 app.use(expressLayouts)
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
 
 
 app.use('/origin',  originRouter)
