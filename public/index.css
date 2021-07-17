@@ -1,6 +1,6 @@
 body {
     color: #fff;
-    background: DodgerBlue;
+    background:  snow;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -22,10 +22,18 @@ body {
 
 }
 #product{
-	width: 400px;
+	width: 500px;
 	height: 500px;
 	margin: 20px;
 	padding: 10px;
 }
+.form-control{
+	color: red;
+	font-size: 20px;
 
+}
+input::placeholder {
+  color: green;
   
+}
+

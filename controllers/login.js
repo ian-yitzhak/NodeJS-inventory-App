@@ -35,7 +35,7 @@ const login = (req,res,next) =>{
 
     return next(err);
   }
-res.redirect('/product/product')
+res.redirect('/')
 }
 
 

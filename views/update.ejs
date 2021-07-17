@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-center"> 
+
+<section class="form-dark mb-5">
+
+ <!--Form without header-->
+  <div class="card card-image" >
+    <div class="text-white rgba-stylish-strong py-4 px-5 z-depth-4">
+
+      <!--Header-->
+      <div class="text-center">
+        <h3 class="white-text mb-5 mt-4 font-weight-bold text-uppercase"><strong>Fill In</strong> <a class="green-text font-weight-bold"><strong>
+              THE FORM</strong></a></h3>
+      </div>
+       <form action="/origin/update/<%= origin.id %>?_method=PUT" method="POST" enctype="multipart/form-data" autocomplete="off">
+
+      <div class="md-form">
+        
+       
+        <input type="text" value="<%= origin.name %>" name="name"    id="form100" placeholder="please enter name" class="form-control">
+      </div>
+
+      
+      <div class="md-form">
+      
+        <textarea id="form103"  value="<%= origin.description %>" name="description"  placeholder="please enter description"  class="md-textarea form-control" rows="5"></textarea>
+        
+      </div>
+
+      <!--Grid row-->
+      <div class="row d-flex align-items-center">
+
+        <!--Grid column-->
+        <div class="text-center col-md-12 mt-3 mb-2">
+          <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Send</button>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+      </form>
+
+    </div>
+  </div>
+  <!--/Form without header-->
+</section>
+<!-- Section: form dark -->
+
+ </div>

@@ -1,15 +1,16 @@
 <br>
 <br>
-<div class="d-flex justify-content-center"> <a href="/product/new" class="btn btn-warning">ADD NEW</a></div>
 
-<div class="d-flex justify-content-center"> 
-<%= origin.name %>
-<%= origin.description %>
+
+<div class="text-center justify-content-center"> 
+<h4> Category: <%= origin.name %> </h4>
+<br>
+<h5> <%= origin.description %> </h5>
 
 </div>
  <section class="category-products">
         <% if (product.length === 0) { %> 
-          <h4>This category has no listed product </h4>
+          <h4 class="text-danger">This category has no listed product </h4>
           <% } else { %> 
           <% product.forEach(product => { %>
           <div class="row row-cols-1 row-cols-md-2">         
@@ -29,13 +30,11 @@
       </div>
 
       <!--Card content-->
-      <div class="card-body"> Price: $
+      <div class="card-body"> 
 
         <!--Title-->
-        <h4 class="card-title"><strong>Name: </strong><%= product.name %></h4>
+        <h4 class="card-text"><strong>Name: </strong><%= product.name %></h4>
 
-        <h4 class="card-title"><strong>Origin: </strong> <%= origin.name %></h4>
-        <!--Text-->
         <p class="card-text"><%= product.description %></p>
         <br>
         <p class="card-text">Price: $<%= product.price %></p>
