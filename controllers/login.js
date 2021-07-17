@@ -1,8 +1,9 @@
 const passport = require("passport");
 const User = require('../models/login')
 
+
 const register = (req, res, next) => {
-  res.render("register")
+  res.render('register')
 
 }
 
@@ -15,30 +16,24 @@ const newUser = (req, res, next) => {
     if (err) { 
       return next(err);
     }
-    res.redirect("/origin/login");
+    res.redirect("/login/login");
   });
 }
 const userLogin = (req,res, next)=>{
   res.render('login')
 }
 
-const userLoginPost = passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/origin/login"
-  })
+const login = passport.authenticate("local", {
   
+  successRedirect: "/",
+  failureRedirect: "/login/login"
 
 
-
-
+})
 
 module.exports = {
   newUser,
   register,
   userLogin,
-  userLoginPost
-
-
-
-
+  login
 }

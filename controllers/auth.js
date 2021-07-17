@@ -6,7 +6,7 @@ const User = require('../models/login')
 
 module.exports = (passport)=>{
 
-	//local  strategy
+  //local  strategy
 passport.use(
   new LocalStrategy(
     (username, password, done) => {

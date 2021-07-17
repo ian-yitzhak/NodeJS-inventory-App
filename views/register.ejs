@@ -1,54 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<title>REGISTER</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<!-- Material form login -->
+<div class="card">
 
-<link rel="stylesheet" type="text/css" href="/index.css">
-<style>
-  
-</style>
-</head>
-<body>
-<div class="signup-form">
-    <form action="/origin/register" method="post" autocomplete="off">
-    <h2>Sign Up</h2>
-    <p>Please fill in this form to create an account!</p>
-    <hr>
-    <div class="d-flex justify-content-center">
-        <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>REGISTER</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form action="/login/register" method="post" class="text-center" style="color: #757575;" autocomplete="off" >
+
+      <!-- UserName -->
+      <div class="md-form">
+        <input type="text" name="username"  id="materialLoginFormUsername" class="form-control">
+        <label for="materialLoginFormName">Name</label>
       </div>
-        </div>
-        <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-        <input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
+
+      <!-- Email -->
+      <div class="md-form">
+        <input type="email" name="email"  id="materialLoginFormEmail" class="form-control">
+        <label for="materialLoginFormEmail">E-mail</label>
       </div>
-        </div>
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" name="password"  id="materialLoginFormPassword" class="form-control">
+        <label for="materialLoginFormPassword">Password</label>
       </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+          <!-- Remember me -->
+          
         </div>
-    
         
-    <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
-        </div>
-    </form>
-  <div class="text-center">Already have an account? <a href="/origin/login">Login here</a></div>
-</div>
+      </div>
 
-</body>
-</html>
+      <!-- Sign in button -->
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign-up</button>
+
+      <!-- Register -->
+      <p>A member?
+        <a href="/">Login</a>
+      </p>
+
+      
+    </form>
+    <!-- Form -->
+
+  </div>
+
+</div>
+<!-- Material form login -->

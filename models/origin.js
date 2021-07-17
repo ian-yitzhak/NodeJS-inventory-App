@@ -20,16 +20,4 @@ originSchema
   })
 
 
-originSchema.pre('validate', function(next){
-  if(this.name){
-    this.slug = slugify(this.name , {
-      lower: true,
-      strict : true
-    })
-  }
-  next()
-})
-
-
-
 module.exports = mongoose.model('Origin' , originSchema)
