@@ -11,7 +11,7 @@ const productRouter  = require('./routes/product')
 const loginRouter  = require('./routes/login')
 
 require('./db/db')
-require('./controllers/auth')(passport)
+
 
 
 

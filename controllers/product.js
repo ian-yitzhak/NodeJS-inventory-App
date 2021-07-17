@@ -63,6 +63,14 @@ async(req,res,next) =>{
     })
     try{
         await product.save()
+
+        res.redirect('/login/login')
+        if (req.body.password !== 'ian') {
+    res.send('incorrect pasword')
+
+    return next(err);
+}
+
         res.redirect(`/product/show/${product.slug }`)
     }catch(err){
         res.send(err)
@@ -71,7 +79,15 @@ async(req,res,next) =>{
 ]
 
 const deleteProduct = async (req,res,next) =>{
+    
     await Product.findByIdAndDelete(req.params.id)
+    res.redirect('/login/login')
+    if (req.body.password !== 'ian') {
+    res.send('incorrect pasword')
+
+    return next(err);
+  }
+
   res.redirect('/product/product')
 
 
@@ -90,7 +106,7 @@ const editProduct =
 [
 upload.single('image'), 
 async(req,res,next)=>{
-    console.log(req.file)
+    
   req.product = await Product.findById(req.params.id);
   let product = req.product;
 
@@ -102,8 +118,13 @@ async(req,res,next)=>{
     product.image = req.file.filename
 
         try{
-
         product = await product.save()
+        res.redirect('/login/login')
+        if (req.body.password !== 'ian') {
+    res.send('incorrect pasword')
+
+    return next(err);
+}
         res.redirect(`/product/show/${product.slug }`)
     }catch(err){
         res.status(422).send(err)
